@@ -18,8 +18,9 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import axios from "axios";
 import ReactStars from "react-rating-stars-component";
 
-const useStyles = makeStyles(() =>
-    createStyles({
+
+export default function RecipeReviewCard({ currUser, setCurrUser, reviewList }) {
+    const classes = {
         root: {
             maxWidth: 345,
             marginBottom: "5px"
@@ -27,20 +28,16 @@ const useStyles = makeStyles(() =>
         avatar: {
             backgroundColor: red[500],
         },
-    }),
-);
-
-export default function RecipeReviewCard({ currUser, setCurrUser, reviewList }) {
-    const classes = useStyles();
+    };
     console.log(reviewList);
     return (
         <div>
             {reviewList.length > 0 && (
                 reviewList.map(review => (
-                    <Card className={classes.root}>
+                    <Card style={classes.root}>
                         <CardHeader
                             avatar={
-                                <Avatar aria-label="recipe" src={'/uploads/' + review.reviewer.image} className={classes.avatar} />
+                                <Avatar aria-label="recipe" src={'/uploads/' + review.reviewer.image} style={classes.avatar} />
                             }
                             title={review.reviewer.name}
                             style={{paddingBottom:"5px"}}

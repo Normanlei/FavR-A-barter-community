@@ -10,101 +10,101 @@ import RateReviewIcon from '@material-ui/icons/RateReview';
 import $ from "jquery";
 import Modal from "../components/Modal";
 
-const useStyles = makeStyles({
-    list: {
-        marginTop: "80px",
-        width: 350,
-        marginRight: 'auto',
-        marginLeft: 'auto',
-        backgroundColor: "#8693AB",
-        border: "groove 1px rgb(43,41,44, 0.3)",
-    },
-    review: {
-        margin: "5px",
-        color: "white",
-        textShadow: "2px 2px 4px #000000",
-        backgroundColor: "#96CDFF ",
-        border: "dotted 2px #077699",
-        boxShadow: "2px 4px 2px rgb(43,41,44, 0.3)",
-        height: "50px",
-        width: "50px"
-    },
-    delete: {
-        margin: "5px",
-        color: "white",
-        textShadow: "2px 2px 4px #000000",
-        backgroundColor: "#96CDFF ",
-        border: "dotted 2px #077699",
-        boxShadow: "2px 4px 2px rgb(43,41,44, 0.3)",
-        height: "50px",
-        width: "50px"
-    },
-    sideList1Card: {
-        marginTop: '80px',
-        backgroundColor: '#8693AB',
-        border: 'groove 1px rgb(43,41,44, 0.3)',
-        borderRadius: '20px',
-        maxHeight: '85vh',
-        width: '100%',
-        maxWidth: "380px",
-        marginTop: '70px',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        overflowY: "auto"
-    },
-    sideListDrawer: {
-        backgroundColor: '#8693AB',
-        minHeight: '100vh',
-        maxHeight: '100vh',
-        width: '400px'
-    },
-    sideListBody: {
-        padding: '20px 10px 20px 10px',
-        overflowY: "auto",
-        whiteSpace: "nowrap"
-    },
-    sideListList: {
-        listStyle: 'none',
-        padding: 0,
-    },
-    sideListPList: {
-        marginBottom: '10px'
-    },
-    sideListImage: {
-        position: 'relative',
-        height: 'auto'
-    },
-    sideListUserImg: {
-        height: '60px',
-        width: '60px',
-        margin: '0 0 10px 10px',
-        color: 'white',
-        textShadow: '2px 2px 4px #000000',
-        backgroundColor: '#96CDFF',
-        border: 'solid 2px #077699',
-        boxShadow: '2px 4px 2px rgb(43,41,44, 0.3)',
-        borderRadius: "60px",
-        zIndex: 100
-    },
-    sideListUserInfo: {
-        textShadow: '2px 2px 4px #000000',
-        backgroundColor: '#96CDFF',
-        borderRadius: '0px 20px 20px 0px',
-        border: 'hidden 1px #077699',
-        boxShadow: '2px 4px 2px rgb(43,41,44, 0.3)',
-        padding: '5px 140px 5px 30px',
-        margin: '0 0 2px 0',
-        height: '30px',
-        color: 'white'
-    },
-    sideListUserButton: {
-        position: 'relative',
-        right: '40px'
-    }
-});
 
 const Chat = withRouter(({ history, currUser, setCurrUser }) => {
-    const classes = useStyles();
+    const classes = {
+        list: {
+            marginTop: "80px",
+            width: 350,
+            marginRight: 'auto',
+            marginLeft: 'auto',
+            backgroundColor: "#8693AB",
+            border: "groove 1px rgb(43,41,44, 0.3)",
+        },
+        review: {
+            margin: "5px",
+            color: "white",
+            textShadow: "2px 2px 4px #000000",
+            backgroundColor: "#96CDFF ",
+            border: "dotted 2px #077699",
+            boxShadow: "2px 4px 2px rgb(43,41,44, 0.3)",
+            height: "50px",
+            width: "50px"
+        },
+        delete: {
+            margin: "5px",
+            color: "white",
+            textShadow: "2px 2px 4px #000000",
+            backgroundColor: "#96CDFF ",
+            border: "dotted 2px #077699",
+            boxShadow: "2px 4px 2px rgb(43,41,44, 0.3)",
+            height: "50px",
+            width: "50px"
+        },
+        sideList1Card: {
+            marginTop: '80px',
+            backgroundColor: '#8693AB',
+            border: 'groove 1px rgb(43,41,44, 0.3)',
+            borderRadius: '20px',
+            maxHeight: '85vh',
+            width: '100%',
+            maxWidth: "380px",
+            marginTop: '70px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            overflowY: "auto"
+        },
+        sideListDrawer: {
+            backgroundColor: '#8693AB',
+            minHeight: '100vh',
+            maxHeight: '100vh',
+            width: '400px'
+        },
+        sideListBody: {
+            padding: '20px 10px 20px 10px',
+            overflowY: "auto",
+            whiteSpace: "nowrap"
+        },
+        sideListList: {
+            listStyle: 'none',
+            padding: 0,
+        },
+        sideListPList: {
+            marginBottom: '10px'
+        },
+        sideListImage: {
+            position: 'relative',
+            height: 'auto'
+        },
+        sideListUserImg: {
+            height: '60px',
+            width: '60px',
+            margin: '0 0 10px 10px',
+            color: 'white',
+            textShadow: '2px 2px 4px #000000',
+            backgroundColor: '#96CDFF',
+            border: 'solid 2px #077699',
+            boxShadow: '2px 4px 2px rgb(43,41,44, 0.3)',
+            borderRadius: "60px",
+            zIndex: 100
+        },
+        sideListUserInfo: {
+            textShadow: '2px 2px 4px #000000',
+            backgroundColor: '#96CDFF',
+            borderRadius: '0px 20px 20px 0px',
+            border: 'hidden 1px #077699',
+            boxShadow: '2px 4px 2px rgb(43,41,44, 0.3)',
+            padding: '5px 140px 5px 30px',
+            margin: '0 0 2px 0',
+            height: '30px',
+            color: 'white'
+        },
+        sideListUserButton: {
+            position: 'relative',
+            right: '40px'
+        }
+
+    };
     const [modalStyle] = useState(getModalStyle);
     function getModalStyle() {
         const top = 50;
@@ -222,25 +222,25 @@ const Chat = withRouter(({ history, currUser, setCurrUser }) => {
     }
 
     const sideList1 = side => (
-        <div className={classes.sideList1Card} >
-            <div className={classes.sideListBody} >
+        <div style={classes.sideList1Card} >
+            <div style={classes.sideListBody} >
                 <h3 style={{ margin: '0 0 20px 10px' }}>Chat List:</h3>
-                <ui className={classes.sideListList}>
+                <ui style={classes.sideListList}>
                     {state.chatList.map((tile) => (
                         <li
-                            className={classes.sideListPList}
+                            style={classes.sideListPList}
                             onClick={() => handleOpenChatWindow(tile)}
                         >
                             <div
                                 className="d-flex bd-highlight"
                             >
                                 <div
-                                    className={classes.sideListImage}
+                                    style={classes.sideListImage}
                                 >
                                     <img
-                                        src={'/uploads/' + tile.other.image} className={classes.sideListUserImg}
+                                        src={'/uploads/' + tile.other.image} style={classes.sideListUserImg}
                                     />
-                                    <span className={classes.sideListUserInfo}
+                                    <span style={classes.sideListUserInfo}
                                     >
                                         {tile.other.name}
                                     </span>
@@ -248,10 +248,10 @@ const Chat = withRouter(({ history, currUser, setCurrUser }) => {
 
 
                                 <div
-                                    className={classes.sideListUserButton}
+                                    style={classes.sideListUserButton}
                                 >
                                     <IconButton
-                                        className={classes.review}
+                                        style={classes.review}
                                         edge="end" aria-label="review"
                                         onClick={() =>
                                             handleOpen(tile.other.id)
@@ -260,7 +260,7 @@ const Chat = withRouter(({ history, currUser, setCurrUser }) => {
                                         <RateReviewIcon />
                                     </IconButton>
                                     <IconButton
-                                        className={classes.delete}
+                                        style={classes.delete}
                                         edge="end" aria-label="delete"
                                         onClick={(e) => {
                                             handleDeleteChat(tile.id)
@@ -278,25 +278,25 @@ const Chat = withRouter(({ history, currUser, setCurrUser }) => {
         </div>
     );
     const sideList = side => (
-        <div className={classes.sideListDrawer}>
-            <div className={classes.sideListBody}>
+        <div style={classes.sideListDrawer}>
+            <div style={classes.sideListBody}>
                 <h3 style={{ margin: '0 0 20px 10px' }}>Chat List:</h3>
-                <ui className={classes.sideListList}>
+                <ui style={classes.sideListList}>
                     {state.chatList.map((tile) => (
                         <li
-                            className={classes.sideListPList}
+                            style={classes.sideListPList}
                             onClick={() => handleOpenChatWindow(tile)}
                         >
                             <div
                                 className="d-flex bd-highlight"
                             >
                                 <div
-                                    className={classes.sideListImage}
+                                    style={classes.sideListImage}
                                 >
                                     <img
-                                        src={'/uploads/' + tile.other.image} className={classes.sideListUserImg}
+                                        src={'/uploads/' + tile.other.image} style={classes.sideListUserImg}
                                     />
-                                    <span className={classes.sideListUserInfo}
+                                    <span style={classes.sideListUserInfo}
                                     >
                                         {tile.other.name}
                                     </span>
@@ -304,10 +304,10 @@ const Chat = withRouter(({ history, currUser, setCurrUser }) => {
 
 
                                 <div
-                                    className={classes.sideListUserButton}
+                                    style={classes.sideListUserButton}
                                 >
                                     <IconButton
-                                        className={classes.review}
+                                        style={classes.review}
                                         edge="end" aria-label="review"
                                         onClick={() =>
                                             handleOpen(tile.other.id)
@@ -316,7 +316,7 @@ const Chat = withRouter(({ history, currUser, setCurrUser }) => {
                                         <RateReviewIcon />
                                     </IconButton>
                                     <IconButton
-                                        className={classes.delete}
+                                        style={classes.delete}
                                         edge="end" aria-label="delete"
                                         onClick={(e) => {
                                             handleDeleteChat(tile.id)

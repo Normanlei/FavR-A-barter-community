@@ -8,17 +8,6 @@ import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import MessageIcon from '@material-ui/icons/Message';
 import { Link, withRouter } from 'react-router-dom'
 
-const useStyles = makeStyles({
-    root: {
-        maxWidth: '450px',
-        width:'100%',
-        backgroundColor: "rgb(86,86,86)",
-        position: 'fixed',
-        left: '50%',
-        transform: 'translate(-50%)',
-        bottom: 0
-    },
-});
 
 
 const isPartActive = (history, path) => {
@@ -29,7 +18,18 @@ const isPartActive = (history, path) => {
 
 
 const Footer = withRouter(({ history, currUser, setCurrUser }) => {
-    const classes = useStyles();
+    const classes = {
+        root: {
+            maxWidth: '450px',
+            width: '100%',
+            backgroundColor: "rgb(86,86,86)",
+            position: 'fixed',
+            left: '50%',
+            transform: 'translate(-50%)',
+            bottom: 0
+        },
+
+    };
     const [value, setValue] = React.useState();
     return (
         <BottomNavigation
@@ -38,7 +38,7 @@ const Footer = withRouter(({ history, currUser, setCurrUser }) => {
                 setValue(newValue);
             }}
             showLabels
-            className={classes.root}
+            style={classes.root}
         >
             <BottomNavigationAction href={'/user/?id=' + currUser.id} label="Dashborad" icon={<HomeIcon />} style={isPartActive(history, "/user")} />
             <BottomNavigationAction href={'/profile/?id=' + currUser.id} label="Profile" icon={<AccountBoxIcon />} style={isPartActive(history, "/profile")} />

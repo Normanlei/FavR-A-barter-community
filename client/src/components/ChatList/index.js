@@ -40,7 +40,14 @@ function getModalStyle() {
 }
 
 const ChatList = ({ chatList, state, setState, currUser, setCurrUser }) => {
-    const classes = useStyles();
+    const classes = {
+        root: {
+            width: '100%',
+            maxWidth: 360,
+            backgroundColor: "#8693AB",
+            margin: "80px auto 50px auto"
+        }    
+    };
     const [modalStyle] = useState(getModalStyle);
     const [modalState, setModalState] = useState({
         open:false,
@@ -61,7 +68,7 @@ const ChatList = ({ chatList, state, setState, currUser, setCurrUser }) => {
     };
 
     return (
-        <div className={classes.root}>
+        <div style={classes.root}>
             <List 
             component="nav" 
             aria-label="chatlist"
