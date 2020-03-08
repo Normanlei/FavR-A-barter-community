@@ -101,7 +101,7 @@ const Chat = withRouter(({ history, currUser, setCurrUser }) => {
         },
         sideListUserButton: {
             position: 'relative',
-            right: '40px'
+            right: '80px'
         }
 
     };
