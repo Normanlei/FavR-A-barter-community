@@ -6,28 +6,20 @@ import ReactStars from "react-rating-stars-component";
 import APIU from "../../utils/API-User";
 import axios from "axios";
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
-    },
-    paper: {
-        position: 'absolute',
-        width: 400,
-        backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
-    }
-}));
-
-
 
 
 
 const ModalPop = ({ open, handleClose, modalStyle, reviewer, reviewee }) => {
-    const classes = useStyles();
+    const classes = {
+        paper: {
+            position: 'absolute',
+            width: 400,
+            backgroundColor: "white",
+            border: '2px solid #000',
+            padding: "10px",
+        }
+    
+    };
     const [review,setReview] = useState ({
         rate:0,
         comment:""
@@ -68,7 +60,7 @@ const ModalPop = ({ open, handleClose, modalStyle, reviewer, reviewee }) => {
                     open={open}
                     onClose={handleClose}
                 >
-                    <div style={modalStyle} className={classes.paper}>
+                    <div style={modalStyle} style={classes.paper}>
                         <ReactStars
                             value={review.rate}
                             size={50}

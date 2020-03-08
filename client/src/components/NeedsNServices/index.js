@@ -11,7 +11,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
 const NSList = ({ category, list, currUser, setCurrUser }) => {
-    const theme = createMuiTheme();
     const classes = {
         root: {
             flexGrow: 1,

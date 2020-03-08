@@ -9,23 +9,6 @@ import RateReviewIcon from '@material-ui/icons/RateReview';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Modal from "../Modal";
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: "#8693AB",
-        margin: "80px auto 50px auto"
-    },
-    paper: {
-        position: 'absolute',
-        width: 400,
-        backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing(2, 4, 3),
-    }
-}));
-
 
 
 function getModalStyle() {
