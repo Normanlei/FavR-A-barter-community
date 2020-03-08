@@ -12,13 +12,15 @@ const Profile = withRouter(({ history, currUser, setCurrUser }) => {
       borderRadius: "20px",
       border: "groove 1px rgb(43,41,44, 0.3)",
       backgroundColor: "#8693AB",
-      width:"90%",
+      maxWidth:'400px',
+      width:"100%",
       marginRight:'auto',
       marginLeft:'auto',
       marginTop:'70px',
       overflow:'auto',
-      maxHeight:"80vh",
-      minHeight:"80vh"
+      maxHeight:"85vh",
+      minHeight:"85vh",
+      display:"block"
     }
   }
 

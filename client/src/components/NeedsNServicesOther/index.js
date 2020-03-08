@@ -5,7 +5,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import API from "../../utils/API-User"
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -91,24 +91,13 @@ const NSList = ({ category, list, currUser, setCurrUser }) => {
                         <ListItemSecondaryAction>
                             <IconButton 
                             style={classes.delete}
-                            edge="end" aria-label="delete" onClick={(i) => handleDelete(i)}>
-                                <DeleteIcon />
+                            edge="end" aria-label="list" >
+                                <ArrowBackIcon />
                             </IconButton>
                         </ListItemSecondaryAction>
                     </ListItem>
                 ))}
             </List>
-            {/* <form style={classes.root1} noValidate autoComplete="off">
-                <TextField id="standard-basic" label={category} value={state.newItem} onChange={handleChange} style={{ marginRight: "10px" }} />
-                <Button 
-                variant="contained" 
-                color="primary" 
-                onClick={handleSubmit} 
-                style={classes.button}
-                >
-                Add
-                </Button>
-            </form> */}
         </div>
     )
 }

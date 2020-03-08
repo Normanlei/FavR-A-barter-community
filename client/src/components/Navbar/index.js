@@ -7,13 +7,15 @@ import HomeIcon from '@material-ui/icons/Home';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import MessageIcon from '@material-ui/icons/Message';
 import { Link, withRouter } from 'react-router-dom'
-import { TableFooter } from 'material-ui';
 
 const useStyles = makeStyles({
     root: {
-        width: '100%',
+        maxWidth: '450px',
+        width:'100%',
         backgroundColor: "rgb(86,86,86)",
         position: 'fixed',
+        left: '50%',
+        transform: 'translate(-50%)',
         bottom: 0
     },
 });

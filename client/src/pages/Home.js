@@ -7,9 +7,10 @@ const Home = withRouter(({ history, currUser, setCurrUser }) => {
 
     const classes = {
         container: {
-          maxWidth: '100%',
+          maxWidth: '400px',
+          width:"100%",
           textAlign: 'center',
-          height: "80vh",
+          height: "85vh",
           paddingRight: "auto",
           paddingLeft: "auto",
           backgroundColor: "#8693AB",
@@ -17,7 +18,6 @@ const Home = withRouter(({ history, currUser, setCurrUser }) => {
           border: "groove 3px rgb(43,41,44, 0.3)",
           overflow: "auto",
           marginTop:"70px",
-          width:'90%',
           marginRight:'auto',
           marginLeft:'auto',
           

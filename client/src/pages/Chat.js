@@ -7,16 +7,15 @@ import ChatWindow from "../components/ChatWindow";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from '@material-ui/icons/Delete';
 import RateReviewIcon from '@material-ui/icons/RateReview';
-import "./chat-style.css";
 import $ from "jquery";
 import Modal from "../components/Modal";
 
 const useStyles = makeStyles({
     list: {
-        marginTop:"80px",
+        marginTop: "80px",
         width: 350,
-        marginRight:'auto',
-        marginLeft:'auto',
+        marginRight: 'auto',
+        marginLeft: 'auto',
         backgroundColor: "#8693AB",
         border: "groove 1px rgb(43,41,44, 0.3)",
     },
@@ -39,6 +38,68 @@ const useStyles = makeStyles({
         boxShadow: "2px 4px 2px rgb(43,41,44, 0.3)",
         height: "50px",
         width: "50px"
+    },
+    sideList1Card: {
+        marginTop: '80px',
+        backgroundColor: '#8693AB',
+        border: 'groove 1px rgb(43,41,44, 0.3)',
+        borderRadius: '20px',
+        maxHeight: '85vh',
+        width: '100%',
+        maxWidth: "380px",
+        marginTop: '70px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        overflowY: "auto"
+    },
+    sideListDrawer: {
+        backgroundColor: '#8693AB',
+        minHeight: '100vh',
+        maxHeight: '100vh',
+        width: '400px'
+    },
+    sideListBody: {
+        padding: '20px 10px 20px 10px',
+        overflowY: "auto",
+        whiteSpace: "nowrap"
+    },
+    sideListList: {
+        listStyle: 'none',
+        padding: 0,
+    },
+    sideListPList: {
+        marginBottom: '10px'
+    },
+    sideListImage: {
+        position: 'relative',
+        height: 'auto'
+    },
+    sideListUserImg: {
+        height: '60px',
+        width: '60px',
+        margin: '0 0 10px 10px',
+        color: 'white',
+        textShadow: '2px 2px 4px #000000',
+        backgroundColor: '#96CDFF',
+        border: 'solid 2px #077699',
+        boxShadow: '2px 4px 2px rgb(43,41,44, 0.3)',
+        borderRadius: "60px",
+        zIndex: 100
+    },
+    sideListUserInfo: {
+        textShadow: '2px 2px 4px #000000',
+        backgroundColor: '#96CDFF',
+        borderRadius: '0px 20px 20px 0px',
+        border: 'hidden 1px #077699',
+        boxShadow: '2px 4px 2px rgb(43,41,44, 0.3)',
+        padding: '5px 140px 5px 30px',
+        margin: '0 0 2px 0',
+        height: '30px',
+        color: 'white'
+    },
+    sideListUserButton: {
+        position: 'relative',
+        right: '40px'
     }
 });
 
@@ -76,7 +137,7 @@ const Chat = withRouter(({ history, currUser, setCurrUser }) => {
             let otherId = chat.user2 === currUser.id ? chat.user1 : chat.user2;
             let tempChatObj = {
                 id: chat._id,
-                self: { id: selfId, name: currUser.name,image:currUser.image},//add image here later
+                self: { id: selfId, name: currUser.name, image: currUser.image },//add image here later
                 other: { id: otherId }
             };
             axios.get(`../api/users/${otherId}`)
@@ -152,115 +213,59 @@ const Chat = withRouter(({ history, currUser, setCurrUser }) => {
     const handleDeleteChat = id => {
         console.log(id);
         console.log(state.chatList);
-        let newChatList = state.chatList.filter(chat=>chat.id!=id);
+        let newChatList = state.chatList.filter(chat => chat.id != id);
         console.log(newChatList);
         API.remove(id)
-        .then(()=>{
-            setState({...state,chatList:newChatList});
-        })
+            .then(() => {
+                setState({ ...state, chatList: newChatList });
+            })
     }
 
     const sideList1 = side => (
-            <div className="card contacts_card" style={{maxHeight:'80vh',marginTop:'70px',marginBottom:'0px',marginLeft:'15px',marginRight:'15px'}}>
-                <div className="card-body contacts_body">
-                    <ui className="contacts">
-                        {state.chatList.map((tile) => (
-                            <li 
-                            className="active" 
-                            onClick={() => handleOpenChatWindow(tile)}
-                            >
-                                <div 
-                                className="d-flex bd-highlight"
-                                >
-                                    <div 
-                                    className="img_cont"
-                                    >
-                                        <img 
-                                        src={'/uploads/'+tile.other.image} className="rounded-circle user_img" 
-                                        />
-                                        <span className="user_info"
-                                        >
-                                        {tile.other.name}
-                                        </span>
-                                    </div>
-                                    
-                                    
-                                    <div 
-                                    className="user_button"
-                                    >
-                                        <IconButton 
-                                        className={classes.review}
-                                        edge="end" aria-label="review" 
-                                        style={{ padding: "0px", marginRight: "8px" }} onClick={() => 
-                                            handleOpen(tile.other.id)
-                                        }
-                                        >
-                                            <RateReviewIcon />
-                                        </IconButton>
-                                        <IconButton 
-                                        className={classes.delete}
-                                        edge="end" aria-label="delete" 
-                                        style={{ padding: "0px" }} 
-                                        onClick={(e)=>{
-                                            handleDeleteChat(tile.id)
-                                            e.stopPropagation();
-                                        }}
-                                        >
-                                            <DeleteIcon />
-                                        </IconButton>
-                                    </div>
-                                </div>
-                            </li>
-                        ))}
-                    </ui>
-                </div>
-            </div>
-    );
-    const sideList = side => (
-        <div className="card contacts_card1">
-            <div className="card-body contacts_body">
-                <ui className="contacts">
+        <div className={classes.sideList1Card} >
+            <div className={classes.sideListBody} >
+                <h3 style={{ margin: '0 0 20px 10px' }}>Chat List:</h3>
+                <ui className={classes.sideListList}>
                     {state.chatList.map((tile) => (
-                        <li 
-                        className="active" 
-                        onClick={() => handleOpenChatWindow(tile)}
+                        <li
+                            className={classes.sideListPList}
+                            onClick={() => handleOpenChatWindow(tile)}
                         >
-                            <div 
-                            className="d-flex bd-highlight"
+                            <div
+                                className="d-flex bd-highlight"
                             >
-                                <div 
-                                className="img_cont"
+                                <div
+                                    className={classes.sideListImage}
                                 >
-                                    <img 
-                                    src={'/uploads/'+tile.other.image} className="rounded-circle user_img" 
+                                    <img
+                                        src={'/uploads/' + tile.other.image} className={classes.sideListUserImg}
                                     />
-                                    <span className="user_info"
+                                    <span className={classes.sideListUserInfo}
                                     >
-                                    {tile.other.name}
+                                        {tile.other.name}
                                     </span>
                                 </div>
-                                
-                                
-                                <div 
-                                className="user_button"
+
+
+                                <div
+                                    className={classes.sideListUserButton}
                                 >
-                                    <IconButton 
-                                    className={classes.review}
-                                    edge="end" aria-label="review" 
-                                    style={{ padding: "0px", marginRight: "8px" }} onClick={() => 
-                                        handleOpen(tile.other.id)
-                                    }
+                                    <IconButton
+                                        className={classes.review}
+                                        edge="end" aria-label="review"
+                                        onClick={() =>
+                                            handleOpen(tile.other.id)
+                                        }
                                     >
                                         <RateReviewIcon />
                                     </IconButton>
-                                    <IconButton 
-                                    className={classes.delete}
-                                    edge="end" aria-label="delete" 
-                                    style={{ padding: "0px" }} 
-                                    onClick={(e)=>{
-                                        handleDeleteChat(tile.id)
-                                        e.stopPropagation();
-                                    }}
+                                    <IconButton
+                                        className={classes.delete}
+                                        edge="end" aria-label="delete"
+                                        onClick={(e) => {
+                                            handleDeleteChat(tile.id)
+                                            e.stopPropagation();
+                                        }}
                                     >
                                         <DeleteIcon />
                                     </IconButton>
@@ -271,33 +276,88 @@ const Chat = withRouter(({ history, currUser, setCurrUser }) => {
                 </ui>
             </div>
         </div>
-);
+    );
+    const sideList = side => (
+        <div className={classes.sideListDrawer}>
+            <div className={classes.sideListBody}>
+                <h3 style={{ margin: '0 0 20px 10px' }}>Chat List:</h3>
+                <ui className={classes.sideListList}>
+                    {state.chatList.map((tile) => (
+                        <li
+                            className={classes.sideListPList}
+                            onClick={() => handleOpenChatWindow(tile)}
+                        >
+                            <div
+                                className="d-flex bd-highlight"
+                            >
+                                <div
+                                    className={classes.sideListImage}
+                                >
+                                    <img
+                                        src={'/uploads/' + tile.other.image} className={classes.sideListUserImg}
+                                    />
+                                    <span className={classes.sideListUserInfo}
+                                    >
+                                        {tile.other.name}
+                                    </span>
+                                </div>
+
+
+                                <div
+                                    className={classes.sideListUserButton}
+                                >
+                                    <IconButton
+                                        className={classes.review}
+                                        edge="end" aria-label="review"
+                                        onClick={() =>
+                                            handleOpen(tile.other.id)
+                                        }
+                                    >
+                                        <RateReviewIcon />
+                                    </IconButton>
+                                    <IconButton
+                                        className={classes.delete}
+                                        edge="end" aria-label="delete"
+                                        onClick={(e) => {
+                                            handleDeleteChat(tile.id)
+                                            e.stopPropagation();
+                                        }}
+                                    >
+                                        <DeleteIcon />
+                                    </IconButton>
+                                </div>
+                            </div>
+                        </li>
+                    ))}
+                </ui>
+            </div>
+        </div>
+    );
 
     console.log(state.currChat);
     if (!$.isEmptyObject(state.currChat)) {
         return (
-            <ChatWindow 
-            chatRoom={state.currChat} 
-            currUser={currUser} 
-            toggleDrawer={toggleDrawer} 
-            state={state} 
-            sideList={sideList} 
-            modalState={modalState} 
-            handleClose={handleClose} 
-            modalStyle={modalStyle}/>
+            <ChatWindow
+                chatRoom={state.currChat}
+                currUser={currUser}
+                toggleDrawer={toggleDrawer}
+                state={state}
+                sideList={sideList}
+                modalState={modalState}
+                handleClose={handleClose}
+                modalStyle={modalStyle} />
         );
     } else {
         return (
-            <div 
-            style={{ height: "85vh", paddingBottom:"10px", paddingTop:"10px" }}>
+            <React.Fragment>
                 {sideList1("left")}
-                <Modal 
-                open={modalState.open} 
-                handleClose={handleClose} modalStyle={modalStyle} 
-                reviewer={currUser.id} 
-                reviewee={modalState.reviewee} 
+                <Modal
+                    open={modalState.open}
+                    handleClose={handleClose} modalStyle={modalStyle}
+                    reviewer={currUser.id}
+                    reviewee={modalState.reviewee}
                 />
-            </div>
+            </React.Fragment>
         );
     }
 });

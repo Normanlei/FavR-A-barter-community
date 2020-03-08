@@ -7,24 +7,28 @@ import IconButton from "@material-ui/core/IconButton";
 import Modal from "../Modal";
 import Popover from '@material-ui/core/Popover';
 import Alert from '../Alert';
-import "./chat-style.css";
 import { withRouter } from 'react-router-dom';
+import "./style.css";
+import PersonIcon from '@material-ui/icons/Person';
 
 const ChatWindow = withRouter(({history, chatRoom, currUser, toggleDrawer, state, sideList, modalState, modalStyle, handleClose }) => {
 
     const classes = {
         container: {
-            height: "84vh", 
-            paddingBottom:"10px", 
-            paddingTop:"10px",
-            margin: "70px 0 0 0"
+            height: "85vh", 
+            margin: "70px 0 0 0",
+            width:"100%",
+            maxWidth:'400px',
+            marginRight:"auto",
+            marginLeft:"auto"
         },
         card: {
             minHeight: "100%",
             backgroundColor: "#8693AB",
             backgroundColor: "#8693AB",
             borderRadius: "20px",
-            border: "groove 1px rgb(43,41,44, 0.3)"
+            border: "groove 1px rgb(43,41,44, 0.3)",
+            position:"relative"
         },
         text: {
             color: "white",
@@ -248,19 +252,22 @@ const ChatWindow = withRouter(({history, chatRoom, currUser, toggleDrawer, state
 
     return (
         <div style={classes.container}>
-            <div className="card" style={classes.card}>
+            <div style={classes.card}>
                 <div className="card-header msg_head">
                     <div className="d-flex bd-highlight">
                         <div className="img_cont" onClick={()=>handlePage(chatRoom.other.id)}>
                             <img src={'/uploads/'+chatRoom.other.image} className="rounded-circle user_img" />
-                            <span className="online_icon"></span>
                         </div>
                         <div 
-                        className="user_info" style={{width:'300px',paddingRight:"0px",marginTop:'20px'}}>
+                        className="user_info">
                             <span
                             style={classes.text}
                             >
-                            Chat w/ {chatRoom.other.name}</span>
+                            Chat with {chatRoom.other.name}</span>
+                        </div>
+                        <div className="user_view" onClick={()=>handlePage(chatRoom.other.id)}>
+                            <PersonIcon/>
+                            <span>View Profile</span>
                         </div>
                     </div>
                     <span id="action_menu_btn">

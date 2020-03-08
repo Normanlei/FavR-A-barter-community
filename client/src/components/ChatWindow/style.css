@@ -1,3 +1,156 @@
-.chatContainer {
-    background-color: "#8693AB"
+.card-header{
+    border-radius: 15px 15px 0 0 !important;
+    border-bottom: 0 !important;
 }
+
+.msg_head{
+    position: relative;
+}
+
+.img_cont{
+    position: relative;
+    height: 50px;
+    width: 50px;
+}
+
+.user_img{
+    height: 50px;
+    width: 50px;
+    border:1.5px solid black;
+}
+
+
+.user_info{
+    margin-top: 0px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+
+#action_menu_btn{
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.msg_card_body{
+    overflow-y: auto;
+    min-height: 68vh;
+    padding: 30px;
+    background-color: rgb(220,220,220);
+    background-image: url("../../assets/images/Favr\ Logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.card-footer{
+    border-radius: 0 0 15px 15px !important;
+    border-top: 0 !important;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 20px;
+    
+}
+
+.attach_btn{
+    border-radius: 15px 0 0 15px !important;
+    background-color: rgba(0,0,0,0.3) !important;
+    border:0 !important;
+    color: white !important;
+    cursor: pointer;
+}
+
+.type_msg{
+    background-color: rgba(0,0,0,0.3) !important;
+    border:0 !important;
+    color:white !important;
+    height: 60px !important;
+    overflow-y: auto;
+}
+.type_msg:focus{
+    box-shadow:none !important;
+    outline:0px !important;
+}
+
+.send_btn{
+    border-radius: 0 15px 15px 0 !important;
+    background-color: rgba(0,0,0,0.3) !important;
+    border:0 !important;
+    color: white !important;
+    cursor: pointer;
+}
+
+.msg_cotainer_send{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    border-radius: 25px;
+    background-color: lightgreen;
+    padding: 10px;
+    position: relative;
+}
+
+.msg_cotainer{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    border-radius: 25px;
+    background-color: lightgreen;
+    padding: 10px;
+    position: relative;
+}
+
+.msg_time_send{
+    position: absolute;
+    right:0;
+    bottom: -15px;
+    color:black;
+    font-size: 10px;
+    width: 150px;
+    text-align: end;
+}
+
+.msg_time{
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    color:black;
+    font-size: 10px;
+    width: 150px;
+    text-align: left;
+}
+
+.img_cont_msg{
+    height: 40px;
+    width: 40px;
+}
+
+.user_img_msg{
+    height: 40px;
+    width: 40px;
+    border:1.5px solid #f5f6fa;
+}
+
+.user_view {
+    position: absolute;
+    left: 80px;
+    top: 40px;
+    font-size: 15px;
+    color: floralwhite;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+

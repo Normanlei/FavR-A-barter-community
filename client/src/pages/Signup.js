@@ -17,14 +17,16 @@ const Signup = () => {
 
   const classes = {
     card: {
-      maxWidth: 600,
+      maxWidth: "380px",
       textAlign: 'center',
       paddingRight: "auto",
       paddingLeft: "auto",
       backgroundColor: "#8693AB",
       borderRadius: "20px",
       border: "inset 1px white",
-      margin:"80px 20px",
+      marginTop:"80px",
+      marginRight:"auto",
+      marginLeft:"auto",
       maxHeight: "85vh",
       marginBottom:"0px",
       overflow:'auto'

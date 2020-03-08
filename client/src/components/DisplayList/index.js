@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import List from "../NeedsNServices"
 import Review from '../Reviews';
+import "./style.css";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -35,7 +36,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
     return {
         id: `nav-tab-${index}`,
-        "aria-controls": `div-${index}`
+        "aria-controls": `nav-tabpanel-${index}`
     };
 }
 
@@ -66,17 +67,17 @@ const useStyles = makeStyles(theme => ({
         borderRadius: "0 0 20px 20px",
         backgroundColor: "rgb(43,41,44, 0.3)",
         color: "white",
-        marginBottom: "-20px"
+        marginBottom: "-20px",
     },
     tabs: {
         textShadow: "2px 2px 4px #000000",
         backgroundImage: "linear-gradient(#96CDFF 0%, #077699 51%, #96CDFF  100%)",
-        border: "solid 1px #96CDFF"
+        border: "solid 1px #96CDFF",
     },
     appBar: {
         backgroundImage: "linear-gradient(to right, #96CDFF 0%, #077699 51%, #96CDFF 100%)",
         borderRadius: "20px"
-    }
+    },
 }));
 
 export default function NavTabs({ currUser, setCurrUser,reviewList }) {
