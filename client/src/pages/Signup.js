@@ -80,6 +80,12 @@ const Signup = () => {
     error: ''
   });
 
+  const [address, setAddress] = useState({
+    street: '',
+    city: '',
+    state: ''
+  });
+
   const [imagedata, setImageData] = useState({
     success: "",
     error: ""
@@ -115,6 +121,10 @@ const Signup = () => {
   const handleChange = name => event => {
     setState({ ...state, [name]: event.target.value })
   }
+  const handleChange1 = name => event => {
+    setAddress({ ...address, [name]: event.target.value })
+  }
+
 
   const handleScriptLoad = () => {
     let autocomplete = new window.google.maps.places.Autocomplete(document.getElementById("street"));
@@ -132,8 +142,7 @@ const Signup = () => {
       city: addressComp[1],
       state: addressComp[2]
     };
-
-    setState({ ...state, street: faddress.street, city: faddress.city, state: faddress.state });
+    setAddress({street: faddress.street, city: faddress.city, state: faddress.state });
   }
 
   const clickSubmit = () => {
@@ -142,9 +151,9 @@ const Signup = () => {
       email: state.email || undefined,
       password: state.password || undefined,
       intro: state.intro,
-      street: state.street || undefined,
-      city: state.city || undefined,
-      state: state.state || undefined,
+      street: address.street || undefined,
+      city: address.city || undefined,
+      state: address.state || undefined,
       zip: state.zip,
       image: state.image,
     }
@@ -224,22 +233,22 @@ const Signup = () => {
               id="street"
               label="Street (Required)"
               style={classes.textField}
-              value={state.street}
-              onChange={handleChange('street')} margin="normal" />
+              value={address.street}
+              onChange={handleChange1('street')} margin="normal" />
             <br />
             <TextField
               id="city"
               label="City (Required)"
               style={classes.textField}
-              value={state.city}
-              onChange={handleChange('city')} margin="normal" />
+              value={address.city}
+              onChange={handleChange1('city')} margin="normal" />
             <br />
             <TextField
               id="state"
               label="State (Required)"
               style={classes.textField}
-              value={state.state}
-              onChange={handleChange('state')} margin="normal" />
+              value={address.state}
+              onChange={handleChange1('state')} margin="normal" />
             <br />
             <TextField
               id="ZIP"
